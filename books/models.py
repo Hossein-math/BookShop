@@ -27,6 +27,7 @@ class Comment(models.Model):
     comment = models.TextField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
+    publish = models.BooleanField(default=False)
 
     def get_absolute_url(self):
         return reverse('book_detail', kwargs={'pk': self.book.pk})

@@ -22,6 +22,8 @@ class CustomUser(AbstractUser):
 
     @property
     def age(self):
+        if self.birth_date == None:
+            return 0
         today = date.today()
         age = today.year - self.birth_date.year
         if (today.month, today.day) < (self.birth_date.month, self.birth_date.day):
